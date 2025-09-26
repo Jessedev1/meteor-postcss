@@ -68,9 +68,16 @@ CssToolsMinifier.prototype.processFilesForBundle = async function (files, option
 	}
 
 	const minifiedFiles = CssTools.minifyCss(merged.code);
-	minifiedFiles.forEach((minified) => {
-		files[0].addStylesheet({ data: minified });
-	});
+
+	// CssTools.minifyCss returns an array of minified CSS strings
+	if (Array.isArray(minifiedFiles)) {
+		minifiedFiles.forEach((minified) => {
+			files[0].addStylesheet({ data: minified });
+		});
+	} else {
+		// Fallback: if it returns a single string, add it directly
+		files[0].addStylesheet({ data: minifiedFiles });
+	}
 };
 
 async function mergeCss(cssFiles) {

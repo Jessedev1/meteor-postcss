@@ -8,8 +8,8 @@ ecmascript-runtime-client@0.12.3
 ecmascript-runtime-server@0.11.1
 fetch@0.1.6
 inter-process-messaging@0.1.2
-jessedev:postcss@3.0.0
-local-test:jessedev:postcss@3.0.0
+jessedev:postcss@3.0.1
+local-test:jessedev:postcss@3.0.1
 meteor@2.1.1
 minifier-css@2.0.1
 modern-browsers@0.2.3
