@@ -1,6 +1,3 @@
-// Makes sure we can load peer dependencies from app's directory.
-// See: https://github.com/juliancwirko/meteor-postcss/issues/15
-//      https://github.com/meteor/meteor/issues/10827
 Npm.require('app-module-path/cwd');
 
 import { checkNpmVersions } from 'meteor/tmeasday:check-npm-versions';
@@ -10,7 +7,7 @@ import sourcemap from 'source-map';
 checkNpmVersions({
     'postcss': '8.3.x',
     'postcss-load-config': '3.1.x'
-}, 'juliancwirko:postcss');
+}, 'jessedev:postcss');
 
 // Not used, but available.
 var fs = Plugin.fs;

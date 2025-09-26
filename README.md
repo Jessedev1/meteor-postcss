@@ -4,12 +4,6 @@ Meteor CSS Minifier with [PostCSS](https://github.com/postcss/postcss) processin
 
 This package allows you to use PostCSS plugins with **.css files**. You can add your custom plugins by adding Npm packages using `package.json`. You can also use your favourite preprocessor side by side with this package. It allows you to enable many PostCSS plugins, for example **Autoprefixer** for all preprocessors you use. (Of course you can use it whithout any preprocessor too).
 
-Read more below...
-
-- Blog post: [Some things you may think about PostCSS... and you might be wrong](http://julian.io/some-things-you-may-think-about-postcss-and-you-might-be-wrong/)
-- Blog post: [How to use PostCSS in Meteor](http://julian.io/how-to-use-postcss-in-meteor/)
-- Blog post: [How to use CSS linter in Meteor](https://medium.com/@juliancwirko/how-to-use-css-linter-in-meteor-c60b2f24f969) (example of PostCSS plugin usage)
-
 ## Usage
 
 1. Remove `standard-minifier-css` package
@@ -18,10 +12,10 @@ Read more below...
    meteor remove standard-minifier-css
    ```
 
-2. Add `juliancwirko:postcss` package
+2. Add `jessedev:postcss` package
 
    ```sh
-   meteor add juliancwirko:postcss
+   meteor add jessedev:postcss
    ```
 
 3. Add peer NPM dependencies
@@ -109,7 +103,7 @@ As you can see we use here `postcss-safe-parser` which will repair broken css sy
 
 Because PostCSS processes all CSS files in Meteor, it will also process CSS files from Meteor packages. This is good in most cases and will not break anything, but sometimes it could be problematic.
 
-If you have installed a package which is problematic and PostCSS plugins can't process the CSS files from that package you can exclude it in the process. See for example this issue: [#14](https://github.com/juliancwirko/meteor-postcss/issues/14). In this case you need to exclude `constellation:console` package because it uses not standard CSS in its files. PostCSS plugin can't process that file. You can exclude it so it will be not processed by PostCSS, but it will be still bundled as is.
+If you have installed a package which is problematic and PostCSS plugins can't process the CSS files from that package you can exclude it in the process. In this case you need to exclude `constellation:console` package because it uses not standard CSS in its files. PostCSS plugin can't process that file. You can exclude it so it will be not processed by PostCSS, but it will be still bundled as is.
 
 If you want to exclude a package you need to use `postcss.excludedPackages` key, see the example below:
 
@@ -200,43 +194,6 @@ module.exports = (ctx) => {
 };
 ```
 
-## Demo test repo
-
-Check out the demo repo. This is the best way of learning.
-
-- [https://github.com/juliancwirko/meteor-postcss-test](https://github.com/juliancwirko/meteor-postcss-test)
-- [Discussion and updates](https://forums.meteor.com/t/postcss-package-and-meteor-build-plugin-questions/12454?u=juliancwirko)
-
 ## License
 
 MIT
-
-## Also check out
-
-- [PostCSS and Bootstrap 4 with Scss from Npm package - experiment](https://github.com/juliancwirko/meteor-bootstrap-postcss-test)
-- [sGrid - Flexbox Grid System for Stylus with PostCSS](https://packosphere.com/juliancwirko/s-grid)
-
-## Changelog
-
-- v2.0.7 Update postcss to 8.3.x and postcss-load-config to 3.1.x, other dependencies updated as well.
-- v2.0.6 Update tmeasday:check-npm-versions dep to 1.0.1
-- v2.0.5 Update/fix dependency checks
-- v2.0.3 Restoring the use of app-module-path
-- v2.0.2 Moved to use peer NPM dependencies
-- v2.0.1 Bumping PostCSS to 6.0.22
-- v2.0.0 Started using postcss-load-config for loading configuration
-- v1.3.0 Bumping PostCSS to 6.0.17
-- v1.2.0 Updates (works quite well with Meteor 1.4.2)
-- v1.1.1 Removed `fs.existsSync` call because of [#18](https://github.com/juliancwirko/meteor-postcss/issues/18)
-- v1.1.0 Exclude Meteor package option [#14](https://github.com/juliancwirko/meteor-postcss/issues/14)
-- v1.0.0 Version bump for Meteor 1.3
-- v1.0.0-rc.12 Version bump for Meteor 1.3 rc 12
-- v1.0.0-rc.10 Version bump for Meteor 1.3 rc 10
-- v1.0.0-rc.4 Version bump for Meteor 1.3 rc 4
-- v1.0.0-rc.2 Version bump for Meteor 1.3 rc 2
-- v1.0.0-beta.11 Versions bump for Meteor 1.3 beta 11
-- v1.0.0-beta.1 Modifications for Meteor 1.3 beta 4
-- v0.2.5 Removed Promise Polyfill [#4](https://github.com/juliancwirko/meteor-postcss/pull/4)
-- v0.2.4 Catch PostCSS 'CssSyntaxError' [#3](https://github.com/juliancwirko/meteor-postcss/issues/3)
-- v0.2.3 PostCSS (v5.0.12) version bump
-- v0.2.2 PostCSS (v5.0.11) version bump - [performance improvements](https://evilmartians.com/chronicles/postcss-1_5x-faster)
